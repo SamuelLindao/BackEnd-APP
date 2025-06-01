@@ -9,3 +9,9 @@ app.get('/', (req, res) =>{
 app.listen(port, () =>{
   console.log(`Servidor rodando em http://localhost:${port}`);
 })
+
+app.use(express.json())
+app.post('/filmes', (req,res)=>{
+  const {titulo, genero} = req.body
+  res.send(`Filme:${titulo}- Genero: ${genero}, recebido...`)
+})
